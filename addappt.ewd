@@ -1,0 +1,40 @@
+<ext4:fragment cachePage="false" pageTimeout="12000" onBeforeRender="APPFPRV^EWDSCHD">
+
+<ext4:modalwindow title="Add Appointment" height="175" width="300" layout="fit" autoShow="true" id="addappt">
+
+<ext4:formpanel id="AddApptFP">
+
+<ext4:fieldset>
+                                 
+  <ext4:combobox id="patients" fieldLabel="Patient" />    
+                
+  <ext4:checkboxgroup columns="1" vertical="true">
+  
+    <ext4:checkboxfield boxLabel="Check if this appointment is a referral" name="isreferralsch" inputValue="a1" />
+    
+    <ext4:checkboxfield boxLabel="Check for CCR output" name="ccrreqsch" inputValue="a1" />
+    
+  </ext4:checkboxgroup>
+
+  <ext4:hiddenfield id="fromschx" fieldLabel="fromschx" />
+  <ext4:hiddenfield id="toschx" fieldLabel="toschx" />    
+  <ext4:hiddenfield id="userschx" fieldLabel="userschx" value="<?= #lastuser ?>" />
+  <ext4:hiddenfield id="loginuser" />
+  <ext4:hiddenfield id="providersch" />     
+
+</ext4:fieldset>
+
+<ext4:submitbutton text="Submit" nextPage="addappt2" replacePreviousPage="true" />
+
+</ext4:formpanel>
+
+</ext4:modalwindow>
+
+<ext4:js at="bottom">
+              Ext.getCmp('AddApptFP').getForm().setValues({
+              fromschx: document.getElementById("fromsch").value,
+              toschx: document.getElementById("tosch").value
+              })
+</ext4:js> 
+
+</ext4:fragment>
